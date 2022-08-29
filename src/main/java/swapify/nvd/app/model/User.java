@@ -6,9 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class User {
@@ -27,18 +30,17 @@ public class User {
 	private int	size_id;
 	private int gender_id;
 	
-	// KLOPT DIT?
+	@JsonIgnore
 	@ManyToOne
 	private Size size;
 	
+	@JsonIgnore
 	@ManyToOne
 	private Gender gender;
 	
-	@ManyToOne
-	private UserBag userbag;
-
-	
-	// TOT HIER 
+	@JsonIgnore
+	@OneToMany
+	private List<UserBag> userbag;
 	
 	public long getId() {
 		return id;
