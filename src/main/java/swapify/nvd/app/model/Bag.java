@@ -1,9 +1,13 @@
 package swapify.nvd.app.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Bag {
@@ -17,6 +21,8 @@ public class Bag {
 	private String route;
 	private String city;
 	
+	@ManyToOne
+	private Size size;
 
 	public long getId() {
 		return id;
