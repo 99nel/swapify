@@ -1,9 +1,12 @@
 package swapify.nvd.app.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class UserBag {
@@ -13,6 +16,9 @@ public class UserBag {
 	private int userId;
 	private int bagId;
 
+	@OneToMany
+	private List<Bag> bag;
+	
 	
 	public int getUserId() {
 		return userId;

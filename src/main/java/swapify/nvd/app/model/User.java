@@ -1,9 +1,14 @@
 package swapify.nvd.app.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -22,6 +27,18 @@ public class User {
 	private int	size_id;
 	private int gender_id;
 	
+	// KLOPT DIT?
+	@ManyToOne
+	private Size size;
+	
+	@ManyToOne
+	private Gender gender;
+	
+	@ManyToOne
+	private UserBag userbag;
+
+	
+	// TOT HIER 
 	
 	public long getId() {
 		return id;
